@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // Uncomment the code below and write your tests
 // import { getBankAccount } from '.';
 
