@@ -61,6 +61,7 @@ describe('BankAccount', () => {
     expect(accountA.getBalance()).toBe(50);
     expect(accountB.getBalance()).toBe(100);
   });
+
   test('fetchBalance should return number if request did not fail', async () => {
     const account = getBankAccount(100);
     jest.spyOn(account, 'fetchBalance').mockResolvedValueOnce(80);
@@ -76,6 +77,7 @@ describe('BankAccount', () => {
     await account.synchronizeBalance();
     expect(account.getBalance()).toBe(90);
   });
+
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {
     const account = getBankAccount(100);
     jest.spyOn(account, 'fetchBalance').mockResolvedValueOnce(null);
