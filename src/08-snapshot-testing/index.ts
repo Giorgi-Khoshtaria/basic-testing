@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 type LinkedListNode<T> = {
   value: T | null;
   next: LinkedListNode<T> | null;

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { random } from 'lodash';
 
 export class BankAccount {

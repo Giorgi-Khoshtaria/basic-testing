@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { existsSync } from 'fs';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
