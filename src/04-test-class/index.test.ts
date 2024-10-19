@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 // Uncomment the code below and write your tests
+// index.test.js
 import {
   getBankAccount,
   InsufficientFundsError,
@@ -9,12 +10,11 @@ import {
 
 describe('BankAccount', () => {
   test('should create account with initial balance', () => {
-    // Write your test here
     const account = getBankAccount(100);
     expect(account.getBalance()).toBe(100);
   });
 
-  test('should throw InsufficientFundsError error when withdrawing more than balance', () => {
+  test('should throw InsufficientFundsError when withdrawing more than balance', () => {
     const account = getBankAccount(50);
     expect(() => account.withdraw(100)).toThrow(InsufficientFundsError);
     expect(() => account.withdraw(100)).toThrow(
@@ -61,10 +61,8 @@ describe('BankAccount', () => {
     expect(accountA.getBalance()).toBe(50);
     expect(accountB.getBalance()).toBe(100);
   });
-  test('fetchBalance should return number in case if request did not fail', async () => {
+  test('fetchBalance should return number if request did not fail', async () => {
     const account = getBankAccount(100);
-
-    // Mock the random function to simulate a successful balance fetch
     jest.spyOn(account, 'fetchBalance').mockResolvedValueOnce(80);
 
     const balance = await account.fetchBalance();
@@ -73,8 +71,6 @@ describe('BankAccount', () => {
 
   test('should set new balance if fetchBalance returned number', async () => {
     const account = getBankAccount(100);
-
-    // Mock fetchBalance to return a specific value
     jest.spyOn(account, 'fetchBalance').mockResolvedValueOnce(90);
 
     await account.synchronizeBalance();
@@ -82,8 +78,6 @@ describe('BankAccount', () => {
   });
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {
     const account = getBankAccount(100);
-
-    // Mock fetchBalance to simulate failure
     jest.spyOn(account, 'fetchBalance').mockResolvedValueOnce(null);
 
     await expect(account.synchronizeBalance()).rejects.toThrow(

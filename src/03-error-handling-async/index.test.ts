@@ -16,12 +16,12 @@ describe('resolveValue', (): void => {
 
 describe('throwError', (): void => {
   test('should throw error with provided message', (): void => {
-    const msg = 'Operation failed';
+    const msg = 'Oops!';
     expect(() => throwError(msg)).toThrowError(new Error(msg));
   });
 
   test('should throw error with default message if message is not provided', (): void => {
-    const defaultMessage = 'message is not provided';
+    const defaultMessage = 'Oops!';
     expect(() => throwError()).toThrowError(new Error(defaultMessage));
   });
 });
