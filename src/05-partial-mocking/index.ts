@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 export const mockOne = () => {
   console.log('foo');
 };
